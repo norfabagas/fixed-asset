@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Yajra\DataTables\Contracts\DataTable;
 
 class AssetController extends Controller
 {
@@ -13,7 +14,7 @@ class AssetController extends Controller
      */
     public function index()
     {
-        //
+        return view('asset');
     }
 
     /**
@@ -81,4 +82,8 @@ class AssetController extends Controller
     {
         //
     }
+
+    /**
+     * display datatable of Asset
+     */
 }

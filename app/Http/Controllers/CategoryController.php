@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
+use App\Category;
 
 class CategoryController extends Controller
 {
@@ -13,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('category');
     }
 
     /**
@@ -80,5 +82,25 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * display datatable of categories
+     */
+    public function table()
+    {
+        return DataTables::of(Category::query())
+            ->addColumn('action', function ($category) {
+                return '
+                    <div class="btn-group">
+                        <button class="btn btn-info category-edit" data-id="'.$category->id.'">Edit</button>
+                        <button class="btn btn-danger category-delete" data-id="'.$category->id.'">Delete</button>
+                    </div>
+                ';
+            })
+            ->rawColumns([
+                'action'
+            ])
+            ->make(true);
     }
 }
