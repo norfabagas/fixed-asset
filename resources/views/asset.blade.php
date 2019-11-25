@@ -12,8 +12,6 @@
                         <thead>
                             <tr>
                                 <th data-field="name">{{ __('Name') }}</th>
-                                <th data-field="description">{{ __('Description') }}</th>
-                                <th data-field="action">{{ __('Action') }}</th>
                             </tr> 
                         </thead>
                     </table>

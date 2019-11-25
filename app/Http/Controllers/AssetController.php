@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Asset;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Contracts\DataTable;
+use Yajra\DataTables\DataTables;
 
 class AssetController extends Controller
 {
@@ -86,4 +87,9 @@ class AssetController extends Controller
     /**
      * display datatable of Asset
      */
+    public function table()
+    {
+        return DataTables::of(Asset::query())
+            ->make(true);
+    }
 }
